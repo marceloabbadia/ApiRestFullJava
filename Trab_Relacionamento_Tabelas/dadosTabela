@@ -1,0 +1,38 @@
+INSERT INTO cliente (nome, email, telefone, endereco) 
+VALUES ('João da Silva', 'joao.silva@gmail.com', '(11) 98765-4321', 'Rua A, 123 - São Paulo'),
+       ('Maria Santos', 'maria.santos@gmail.com', '(21) 99876-5432', 'Av. B, 456 - Rio de Janeiro');
+INSERT INTO pedido (id_cliente, data_pedido, valor_total) 
+VALUES ( 1, '2023-05-14', 150.00),
+       ( 1, '2023-05-15', 250.00),
+       ( 2, '2023-05-14', 100.00);
+
+
+INSERT INTO documento(id_cliente, tipo_documento, preco)
+VALUES ( 1, 'Manutenção de Computadores', 200.00),
+       (2, 'Consultoria Empresarial', 500.00),
+       (1, 'Desenvolvimento de Sites', 1000.00),
+       (1, 'Manutenção de Impressoras', 150.00);
+
+
+
+SELECT * FROM CLIENTE 
+inner join pedido 
+on cliente.id =  pedido.id_cliente
+
+SELECT *
+FROM pedido 
+INNER JOIN cliente ON  pedido.id_cliente = cliente.id 
+INNER JOIN documento ON cliente.id = documento.id_cliente;
+
+
+SELECT *
+FROM pedido 
+INNER JOIN cliente ON  pedido.id_cliente = cliente.id 
+INNER JOIN documento ON cliente.id = documento.id_cliente
+where pedido.id_cliente = 1;
+
+
+
+
+
+
